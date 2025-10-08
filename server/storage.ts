@@ -154,7 +154,8 @@ export class MemStorage implements IStorage {
   async createIssue(insertIssue: InsertIssue): Promise<Issue> {
     const id = randomUUID();
     const issue: Issue = { 
-      ...insertIssue, 
+      ...insertIssue,
+      photoUrl: insertIssue.photoUrl || null,
       id,
       status: "pending",
       createdAt: new Date(),
@@ -217,7 +218,8 @@ export class MemStorage implements IStorage {
   async createDiscussion(insertDiscussion: InsertDiscussion): Promise<Discussion> {
     const id = randomUUID();
     const discussion: Discussion = { 
-      ...insertDiscussion, 
+      ...insertDiscussion,
+      parentId: insertDiscussion.parentId || null,
       id,
       timestamp: new Date(),
     };
